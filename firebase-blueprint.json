@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Basic user profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "doctorEmail": { "type": "string" },
+        "progressData": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": { "type": "string" },
+              "weightKg": { "type": "number" }
+            }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "DietPlan": {
+      "title": "Diet Plan",
+      "description": "Structure for a diet plan",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "active"]
+    },
+    "DietItem": {
+      "title": "Diet Item",
+      "description": "Individual meal or snack in a sequence",
+      "type": "object",
+      "properties": {
+        "planId": { "type": "string" },
+        "time": { "type": "string" },
+        "mealType": { "type": "string" },
+        "description": { "type": "string" },
+        "prepTimeMinutes": { "type": "number" },
+        "calories": { "type": "number" },
+        "protein": { "type": "number" },
+        "carbs": { "type": "number" },
+        "fats": { "type": "number" },
+        "order": { "type": "number" }
+      },
+      "required": ["planId", "time", "mealType", "description"]
+    },
+    "DailyLog": {
+      "title": "Daily Log",
+      "description": "Tracking for a specific day",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "date": { "type": "string" },
+        "waterIntakeMl": { "type": "number" },
+        "waterGoalMl": { "type": "number" },
+        "weightKg": { "type": "number" },
+        "mealsLogged": { "type": "object" }
+      },
+      "required": ["userId", "date"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles"
+    },
+    "/users/{userId}/dietPlans/{planId}": {
+      "schema": "DietPlan",
+      "description": "User-specific diet plans"
+    },
+    "/users/{userId}/dietPlans/{planId}/items/{itemId}": {
+      "schema": "DietItem",
+      "description": "Line items for a diet plan"
+    },
+    "/users/{userId}/logs/{logId}": {
+      "schema": "DailyLog",
+      "description": "Daily intake and biometric snapshots"
+    }
+  }
+}

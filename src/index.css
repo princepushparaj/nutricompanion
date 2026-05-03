@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2d2a26;
+  --color-accent: #e07a5f;
+  --color-warm: #fcfaf7;
+  --color-glass-white: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(255, 255, 255, 0.4);
+  
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --shadow-glass-strong: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
+}
+
+@layer base {
+  body {
+    @apply bg-[url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=2670')] bg-fixed bg-cover bg-center text-primary font-sans antialiased;
+  }
+
+  body::before {
+    content: "";
+    @apply fixed inset-0 bg-white/40 backdrop-blur-[60px] pointer-events-none -z-10;
+  }
+}
+
+.glass-card {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass rounded-[2.5rem] transition-all duration-500;
+}
+
+.glass-interactive {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass rounded-[2.5rem] transition-all duration-500;
+  @apply hover:bg-white/80 hover:shadow-glass-strong hover:-translate-y-1 active:scale-[0.98] cursor-pointer;
+}
+
+.text-display {
+  @apply font-serif italic tracking-tight text-primary;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-stone-200/50 rounded-full hover:bg-stone-300;
+}
+
+@keyframes soft-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-soft-float {
+  animation: soft-float 6s ease-in-out infinite;
+}

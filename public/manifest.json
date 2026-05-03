@@ -1,0 +1,25 @@
+{
+  "name": "NutriCompanion Wellness Workspace",
+  "short_name": "NutriCompanion",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fcfaf7",
+  "theme_color": "#fcfaf7",
+  "orientation": "portrait",
+  "description": "Your AI-powered wellness and nutrition workspace.",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3106/3106067.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3106/3106067.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

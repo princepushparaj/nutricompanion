@@ -1,0 +1,13 @@
+{
+  "name": "NutriCompanion",
+  "description": "A refined health and diet companion for tracking nutrition, biometrics, and progress with AI-powered diet plan analysis.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "AI Diet Parsing",
+    "Biometric Tracking",
+    "Meal Logging",
+    "Professional Reporting"
+  ]
+}
